@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  WEEK 3 — Links & Page Navigation
+  ============================================================
+  What we're building: The PROJECTS page of Alex's portfolio.
+
+  Key concepts reinforced here:
+  - Linking between pages with <a href="...">
+  - Consistent <header> and <footer> across pages (copy & paste)
+  - Using <section> and <article> to structure content
+  - The <ul> unordered list and <li> list items
+
+  WEEK 5 — Flexbox card grid layout (see style.css)
+  ============================================================
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Note: Each page has its OWN title in the browser tab -->
+  <title>Projects — Alex Dev</title>
+
+  <!-- Same CSS file — one stylesheet styles the whole site -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==================== HEADER ======================== -->
+  <!--
+    TEACHING POINT — WEEK 3:
+    The header is IDENTICAL on every page. This gives users
+    a consistent navigation experience. In a real project,
+    you'd use a framework or templating system. For now,
+    we copy and paste it — and that's fine for learning.
+  -->
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html">Alex<span class="accent">.</span>Dev</a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <!-- "active" class highlights the CURRENT page in the nav -->
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button class="dark-toggle" id="darkToggle">🌙 Dark Mode</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- =========== PAGE HERO =========== -->
+    <section class="page-hero">
+      <h1>My Projects</h1>
+      <p>Things I've built while learning to code. More coming soon.</p>
+    </section>
+
+
+    <!-- =========== PROJECTS GRID =========== -->
+    <!--
+      WEEK 5: Same Flexbox card grid as index.html.
+      Consistent layout = consistent user experience.
+    -->
+    <section class="projects-section">
+
+      <div class="card-grid">
+
+        <!--
+          WEEK 2: We use <article> for self-contained content.
+          Each project card is an "article" — it makes sense on its own.
+          article > section > div — go from most semantic to least.
+        -->
+        <article class="card card-full">
+          <div class="card-header">
+            <span class="card-emoji">🍕</span>
+            <h2>Recipe Finder</h2>
+          </div>
+          <p>
+            A webpage where you enter ingredients you have at home and it
+            suggests recipes you could make. Built with pure HTML, CSS, and
+            JavaScript — no libraries.
+          </p>
+
+          <!-- WEEK 3: An unordered list — perfect for technologies used -->
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+
+          <div class="card-links">
+            <!-- target="_blank" opens in new tab | rel="noopener" is a security best practice -->
+            <a href="#" target="_blank" rel="noopener" class="btn btn-primary">Live Demo</a>
+            <a href="#" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+          </div>
+        </article>
+
+
+        <article class="card card-full">
+          <div class="card-header">
+            <span class="card-emoji">🌦️</span>
+            <h2>Weather App</h2>
+          </div>
+          <p>
+            Enter any city name and get the current temperature, weather
+            condition, and a 3-day forecast. Connects to a public weather API
+            using JavaScript's fetch().
+          </p>
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Fetch API</li>
+          </ul>
+          <div class="card-links">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-primary">Live Demo</a>
+            <a href="#" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+          </div>
+        </article>
+
+
+        <article class="card card-full">
+          <div class="card-header">
+            <span class="card-emoji">✅</span>
+            <h2>Task Tracker</h2>
+          </div>
+          <p>
+            A to-do list where you can add tasks, mark them complete, and
+            delete them. Tasks are saved in localStorage so they survive
+            a page refresh.
+          </p>
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>localStorage</li>
+          </ul>
+          <div class="card-links">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-primary">Live Demo</a>
+            <a href="#" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+          </div>
+        </article>
+
+
+        <article class="card card-full">
+          <div class="card-header">
+            <span class="card-emoji">🎨</span>
+            <h2>This Portfolio</h2>
+          </div>
+          <p>
+            The site you're looking at right now! Built from scratch during
+            the Kinel Academy Introduction to Web Development course.
+            Fully responsive and deployed on GitHub Pages.
+          </p>
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>CSS Flexbox</li>
+            <li>JavaScript</li>
+            <li>GitHub Pages</li>
+          </ul>
+          <div class="card-links">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-primary">Live Demo</a>
+            <a href="#" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==================== FOOTER ======================== -->
+  <!-- Same footer on every page -->
+  <footer class="site-footer">
+    <p>
+      © <span id="currentYear"></span> Alex Dev. Built with ❤️ and lots of coffee.
+    </p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <!-- Same JS file on every page -->
+  <script src="script.js"></script>
+
+</body>
+</html>

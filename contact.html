@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  WEEK 3 — Forms, Links & Tables
+  ============================================================
+  What we're building: The CONTACT page of Alex's portfolio.
+
+  This page is the main teaching example for HTML forms.
+
+  Key form concepts covered:
+  - <form> wraps all inputs
+  - <label> must be paired with every <input> (accessibility)
+  - <input> types: text, email, tel
+  - <select> and <option> for dropdowns
+  - <textarea> for multi-line text
+  - required attribute for basic validation
+  - name attribute — what gets sent to the server
+
+  WEEK 7 — JavaScript adds form submission feedback (see script.js)
+  ============================================================
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Alex Dev</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==================== HEADER ======================== -->
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html">Alex<span class="accent">.</span>Dev</a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li>
+          <button class="dark-toggle" id="darkToggle">🌙 Dark Mode</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <section class="page-hero">
+      <h1>Get In Touch</h1>
+      <p>Have a project in mind? I'd love to hear about it.</p>
+    </section>
+
+
+    <!-- =================== CONTACT LAYOUT =================== -->
+    <!--
+      WEEK 5: Two-column layout using Flexbox.
+      Left column: contact form.
+      Right column: contact info.
+      On mobile, they stack vertically (media query in style.css).
+    -->
+    <section class="contact-section">
+
+      <div class="contact-grid">
+
+        <!-- =========== LEFT: THE FORM =========== -->
+        <div class="contact-form-wrapper">
+
+          <h2>Send a Message</h2>
+
+          <!--
+            FORM ELEMENT — Week 3
+            ─────────────────────
+            action="/submit" — WHERE the form data gets sent (a server URL)
+            method="POST"    — HOW the data is sent (POST hides data in request body)
+
+            NOTE: For this learning project, the form doesn't actually
+            submit anywhere. In Week 7, we prevent the default submit
+            and show a success message with JavaScript instead.
+          -->
+          <form class="contact-form" id="contactForm" action="/submit" method="POST">
+
+            <!-- ─── FIELD: Full Name ─── -->
+            <!--
+              ALWAYS pair <label> with <input>.
+
+              The for="name" on <label> must MATCH the id="name" on <input>.
+              This does two things:
+              1. Clicking the label focuses the input (better UX)
+              2. Screen readers announce the label when the input is focused
+            -->
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="e.g. Jordan Smith"
+                required
+              />
+              <!--
+                required — The browser won't submit if this is empty.
+                name="name" — This is the KEY sent to the server: { name: "Jordan Smith" }
+                placeholder — Hint text that disappears when you type
+              -->
+            </div>
+
+
+            <!-- ─── FIELD: Email ─── -->
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="e.g. jordan@email.com"
+                required
+              />
+              <!--
+                type="email" does two things automatically:
+                1. Validates that the input looks like an email address
+                2. On mobile, opens the email keyboard (with @ key visible)
+              -->
+            </div>
+
+
+            <!-- ─── FIELD: Phone (optional) ─── -->
+            <div class="form-group">
+              <label for="phone">
+                Phone Number <span class="optional">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="e.g. 07700 900000"
+              />
+              <!--
+                type="tel" — Opens the number keyboard on mobile.
+                No required attribute — this field is optional.
+              -->
+            </div>
+
+
+            <!-- ─── FIELD: Subject (Dropdown) ─── -->
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <!--
+                <select> creates a dropdown menu.
+                Each <option> is one choice.
+                The value attribute is what gets sent to the server.
+                The text between the tags is what the user SEES.
+              -->
+              <select id="subject" name="subject" required>
+                <option value="">— Please select —</option>
+                <option value="freelance">Freelance Project</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="job">Job Opportunity</option>
+                <option value="general">General Enquiry</option>
+              </select>
+            </div>
+
+
+            <!-- ─── FIELD: Message (Textarea) ─── -->
+            <div class="form-group">
+              <label for="message">Message</label>
+              <!--
+                <textarea> is for multi-line text input.
+                rows="6" sets the visible height (but user can resize).
+                Unlike <input>, textarea has a closing tag.
+                Default content goes BETWEEN the tags (not in placeholder).
+              -->
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Tell me about your project..."
+                required
+              ></textarea>
+            </div>
+
+
+            <!-- ─── SUBMIT BUTTON ─── -->
+            <!--
+              type="submit" — Clicking this triggers form submission.
+              The browser will validate required fields first.
+            -->
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Message ✉️
+            </button>
+
+            <!--
+              WEEK 7: JavaScript writes a success or error message here.
+              It's empty in HTML — JS fills it in dynamically.
+            -->
+            <p class="form-feedback" id="formFeedback"></p>
+
+          </form>
+        </div>
+
+
+        <!-- =========== RIGHT: CONTACT INFO =========== -->
+        <div class="contact-info">
+
+          <h2>Other Ways to Reach Me</h2>
+
+          <!-- WEEK 3: Special link types -->
+          <div class="contact-detail">
+            <span class="contact-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <!-- href="mailto:..." opens the user's email client -->
+              <a href="mailto:alex@example.com">alex@example.com</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-icon">💼</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://linkedin.com" target="_blank" rel="noopener">
+                linkedin.com/in/alexdev
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-icon">🐙</span>
+            <div>
+              <strong>GitHub</strong>
+              <a href="https://github.com" target="_blank" rel="noopener">
+                github.com/alexdev
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              <span>London, UK</span>
+            </div>
+          </div>
+
+          <!-- Quick info box -->
+          <div class="response-note">
+            <p>⏱️ I typically respond within 1–2 business days.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==================== FOOTER ======================== -->
+  <footer class="site-footer">
+    <p>
+      © <span id="currentYear"></span> Alex Dev. Built with ❤️ and lots of coffee.
+    </p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

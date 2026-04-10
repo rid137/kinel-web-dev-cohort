@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  WEEK 2 — HTML Basics & Semantic HTML
+  ============================================================
+  What we're building: The HOME page of Alex's portfolio.
+
+  Key concepts introduced here:
+  - The HTML document skeleton (DOCTYPE, html, head, body)
+  - Semantic elements: header, nav, main, section, footer
+  - Headings (h1–h3), paragraphs, images, links, lists
+  - Connecting CSS and JavaScript files via link and script tags
+
+  WEEK 5 — Flexbox & Responsive Design (CSS changes in style.css)
+  WEEK 6 — JS Fundamentals (script.js sets the footer year)
+  WEEK 7 — DOM Manipulation (script.js adds dark mode + mobile menu)
+  ============================================================
+-->
+
+<!-- lang="en" tells browsers and screen readers the page language -->
+<html lang="en">
+
+<head>
+  <!-- ======================================================
+    HEAD SECTION — Invisible metadata about the page
+    Nothing in <head> appears on screen directly.
+  ====================================================== -->
+
+  <!-- UTF-8 handles all characters: emojis, accents, symbols -->
+  <meta charset="UTF-8" />
+
+  <!-- Without this, mobile browsers zoom out to show a "desktop" view.
+       width=device-width makes the page match the device screen width. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- This text appears in the browser tab -->
+  <title>Alex Dev — Web Developer</title>
+
+  <!-- WEEK 3: This line links our external CSS file.
+       rel="stylesheet" tells the browser what kind of file it is.
+       href is the path to the file, relative to this HTML file. -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ======================================================
+    WEEK 2: SEMANTIC HTML — We use MEANINGFUL element names.
+
+    Bad:  <div class="top-bar">    — tells you nothing
+    Good: <header>                  — immediately clear
+    Good: <nav>                     — immediately clear
+    Good: <main>                    — immediately clear
+    Good: <footer>                  — immediately clear
+
+    Screen readers, search engines, and other developers
+    all benefit from semantic HTML.
+  ====================================================== -->
+
+
+  <!-- ==================== HEADER ======================= -->
+  <!--
+    <header> wraps the top section of the page.
+    It usually contains the logo/name and the navigation.
+  -->
+  <header class="site-header">
+
+    <!-- The site name / logo -->
+    <div class="logo">
+      <a href="index.html">Alex<span class="accent">.</span>Dev</a>
+    </div>
+
+    <!-- WEEK 7: This button only shows on mobile screens (hidden in CSS by default).
+         Clicking it opens/closes the nav menu. The JS handles this behaviour. -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <!-- <nav> wraps navigation links — tells browsers this is site navigation -->
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <!-- href="index.html" links to the home page (current page) -->
+        <li><a href="index.html" class="active">Home</a></li>
+
+        <!-- href="projects.html" links to our second page (Week 3) -->
+        <li><a href="projects.html">Projects</a></li>
+
+        <!-- href="contact.html" links to our third page (Week 3) -->
+        <li><a href="contact.html">Contact</a></li>
+
+        <!-- WEEK 7: Dark mode toggle button.
+             JavaScript listens for clicks and toggles a CSS class on <body> -->
+        <li>
+          <button class="dark-toggle" id="darkToggle">🌙 Dark Mode</button>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+
+
+  <!-- ==================== MAIN CONTENT ================== -->
+  <!--
+    <main> wraps the primary content of the page.
+    There should only be ONE <main> per page.
+    It tells screen readers: "this is the important stuff."
+  -->
+  <main>
+
+    <!-- =========== HERO SECTION =========== -->
+    <!--
+      WEEK 2: A <section> is a standalone chunk of content with a theme.
+      The hero section is the big welcome area at the top of the page.
+    -->
+    <section class="hero" id="home">
+
+      <!-- <h1> is the most important heading — there should only be ONE per page.
+           It's the main title of the page. -->
+      <h1>Hi, I'm <span class="accent">Alex</span> 👋</h1>
+
+      <!-- <p> is a paragraph — blocks of text content -->
+      <p class="hero-subtitle">
+        A web developer who loves building things for the internet.
+        I write clean HTML, CSS, and JavaScript.
+      </p>
+
+      <!-- Links styled as buttons — still plain <a> tags under the hood -->
+      <div class="hero-buttons">
+        <a href="projects.html" class="btn btn-primary">View My Work</a>
+        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+      </div>
+
+    </section>
+
+
+    <!-- =========== ABOUT SECTION =========== -->
+    <section class="about" id="about">
+
+      <!-- <h2> is a sub-heading, less important than h1 -->
+      <h2>About Me</h2>
+
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I'm a junior web developer based in London. I started learning to
+            code at Kinel Academy and fell in love with turning ideas into
+            real things people can use online.
+          </p>
+          <p>
+            When I'm not coding, I enjoy photography, hiking, and making
+            extremely strong coffee.
+          </p>
+        </div>
+
+        <!-- WEEK 2: Images need two attributes:
+             - src: WHERE the image file is
+             - alt: a TEXT DESCRIPTION of the image (accessibility)
+             Never skip alt text. Screen readers read it aloud. -->
+        <div class="about-image">
+          <img
+            src="https://placehold.co/300x300/ff6b35/ffffff?text=Alex"
+            alt="Alex, a smiling web developer"
+            width="300"
+            height="300"
+          />
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- =========== SKILLS SECTION =========== -->
+    <!--
+      WEEK 3: We use a <table> here to display structured data (skills + levels).
+      Rule: Tables are for DATA, never for page layout.
+    -->
+    <section class="skills" id="skills">
+
+      <h2>My Skills</h2>
+
+      <!--
+        TABLE ANATOMY (Week 3):
+        <table>  — the table container
+        <thead>  — table header group (column titles)
+        <tbody>  — table body (the actual data rows)
+        <tr>     — table row
+        <th>     — table header cell (bold by default)
+        <td>     — table data cell
+      -->
+      <table class="skills-table">
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Level</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HTML</td>
+            <td>⭐⭐⭐⭐⭐</td>
+            <td>Semantic, accessible markup</td>
+          </tr>
+          <tr>
+            <td>CSS</td>
+            <td>⭐⭐⭐⭐</td>
+            <td>Flexbox, responsive design</td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td>⭐⭐⭐</td>
+            <td>DOM manipulation, events</td>
+          </tr>
+          <tr>
+            <td>Git</td>
+            <td>⭐⭐⭐</td>
+            <td>Version control basics</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+
+    <!-- =========== FEATURED PROJECTS SECTION =========== -->
+    <!--
+      WEEK 5: These cards are laid out using Flexbox in style.css.
+      The .card-grid container becomes a flex container.
+      Each .card becomes a flex item that grows and wraps.
+    -->
+    <section class="featured-projects" id="projects">
+
+      <h2>Featured Projects</h2>
+      <p class="section-subtitle">A few things I've built so far.</p>
+
+      <!-- WEEK 5: This div is our Flexbox CONTAINER.
+           In CSS: display: flex; flex-wrap: wrap; gap: 1.5rem; -->
+      <div class="card-grid">
+
+        <!-- Each .card is a Flexbox ITEM -->
+        <div class="card">
+          <!-- <h3> is a third-level heading — used inside cards/sections -->
+          <h3>🍕 Recipe Finder</h3>
+          <p>A webpage that shows recipes based on ingredients you have at home.</p>
+          <!-- Week 3: target="_blank" opens the link in a new browser tab -->
+          <a href="projects.html" class="card-link">View Project →</a>
+        </div>
+
+        <div class="card">
+          <h3>🌦️ Weather App</h3>
+          <p>Displays live weather for any city using a public weather API.</p>
+          <a href="projects.html" class="card-link">View Project →</a>
+        </div>
+
+        <div class="card">
+          <h3>✅ Task Tracker</h3>
+          <p>A simple to-do list app where you can add, complete, and delete tasks.</p>
+          <a href="projects.html" class="card-link">View Project →</a>
+        </div>
+
+      </div>
+
+      <!-- A link to the full projects page -->
+      <div class="section-cta">
+        <a href="projects.html" class="btn btn-primary">See All Projects</a>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================== FOOTER ======================== -->
+  <!--
+    <footer> goes at the very bottom of the page.
+    It typically has copyright info, links, and contact details.
+  -->
+  <footer class="site-footer">
+    <p>
+      <!-- WEEK 6: JavaScript writes the current year into this <span>.
+           Look at script.js — we use new Date().getFullYear()
+           so the year updates automatically every year. -->
+      © <span id="currentYear"></span> Alex Dev. Built with ❤️ and lots of coffee.
+    </p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+
+  <!-- ======================================================
+    WEEK 6: Connect our JavaScript file.
+    IMPORTANT: The <script> tag goes at the BOTTOM of <body>,
+    AFTER all the HTML elements.
+
+    Why? JavaScript needs the HTML to exist before it can
+    select and manipulate elements. If the script runs first,
+    document.querySelector('#currentYear') would return null
+    because the element hasn't been created yet.
+  ====================================================== -->
+  <script src="script.js"></script>
+
+</body>
+</html>
