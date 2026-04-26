@@ -9,17 +9,17 @@ Each week, students add new concepts directly onto this real, growing project.
 
 ## 📅 Week-by-Week Build Plan
 
-| Week | Module | What Gets Added to the Project |
-|------|--------|-------------------------------|
-| 1 | How the Web Works + VS Code Setup | Understand how browsers request files. Set up VS Code. No code yet — draw the request/response diagram. |
-| 2 | HTML Basics + Semantic HTML | Create `index.html` — full page skeleton with semantic elements |
-| 3 | Forms, Links & Tables + CSS Fundamentals | Create `contact.html` + `projects.html`. Link all pages. Add `css/style.css` with colours, fonts, spacing. |
-| 4 | CSS Box Model + Styling Full Pages | Style cards, sections, buttons using box model rules |
-| 5 | Flexbox + Responsive Design | Make the navbar, hero, and card grid responsive with Flexbox + media queries |
-| 6 | JavaScript Fundamentals | Create `js/script.js` — dynamic year in footer, greeting logic |
-| 7 | DOM Manipulation + Events | Add dark mode toggle, mobile menu open/close, form validation feedback |
-| 8 | Project Build + Final Briefing | Polish, fix bugs, check checklist, prepare for demo |
-| 9 | Final Demo | Deploy to GitHub Pages and present |
+| Week | Module                                   | What Gets Added to the Project                                                                             |
+| ---- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1    | How the Web Works + VS Code Setup        | Understand how browsers request files. Set up VS Code. No code yet — draw the request/response diagram.    |
+| 2    | HTML Basics + Semantic HTML              | Create `index.html` — full page skeleton with semantic elements                                            |
+| 3    | Forms, Links & Tables + CSS Fundamentals | Create `contact.html` + `projects.html`. Link all pages. Add `css/style.css` with colours, fonts, spacing. |
+| 4    | CSS Box Model + Styling Full Pages       | Style cards, sections, buttons using box model rules                                                       |
+| 5    | Flexbox + Responsive Design              | Make the navbar, hero, and card grid responsive with Flexbox + media queries                               |
+| 6    | JavaScript Fundamentals                  | Create `js/script.js` — dynamic year in footer, greeting logic                                             |
+| 7    | DOM Manipulation + Events                | Add dark mode toggle, mobile menu open/close, form validation feedback                                     |
+| 8    | Project Build + Final Briefing           | Polish, fix bugs, check checklist, prepare for demo                                                        |
+| 9    | Final Demo                               | Deploy to GitHub Pages and present                                                                         |
 
 ---
 

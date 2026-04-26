@@ -1,0 +1,4 @@
+Q1. Why must every <label> have a for attribute that matches
+an input's id? Write a correct label-input pair from memory.
+
+Answer => hrebgejhbvjfhbvbdvbf vdbn nc bnd
